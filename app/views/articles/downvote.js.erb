@@ -1,0 +1,17 @@
+
+/**
+$('.downvote_article').bind('ajax:success', function(){
+   $(this).parent().parent().find('.vote_count').html('<%= escape_javascript @article.get_downvotes.size.to_s %>');
+   
+   $(this).closest('.dvotes').html(' <div id = "linkTo"> <%= link_to @article.get_downvotes.size, dislike_article_path(@article), remote: true, method: :get, class: "downvote_article"%> <img src="/assets/downArrow.png"></div>');
+
+});
+
+*/
+
+$('.npos').on('ajax:success', function() {
+ $('.ncount-<%= @article.id %>').html('<%=escape_javascript @article.get_downvotes.size.to_s %>');
+ 
+});
+$('.npos').on('ajax:success', function() {$('.vcount-<%= @article.id %>').html('<%=escape_javascript @article.get_upvotes.size.to_s %>');
+});

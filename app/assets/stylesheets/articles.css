@@ -1,0 +1,38 @@
+
+body {
+  background-color: #e6faff;
+  color: grey;
+  margin: 33px;
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 30px;
+}
+table {
+    border-collapse: seperate;
+    color: white;
+}
+
+
+th,tr {
+    background-color: #d9d9d9;
+    color: white;
+}
+#linkTo a:link, #linkTo a:visited, #linkTo a:hover, #linkTo a:active  { 
+text-decoration:none; 
+color:white;
+}
+
+#linkTo a:hover{
+     background-color: lightblue;
+}
+
+
+#linkTo2 a:link, #linkTo2 a:visited, #linkTo2 a:active  { 
+text-decoration:none; 
+color:grey;
+}
+#linkTo2 a:hover{
+	text-decoration:none;
+     background-color: #e6faff;
+     color: darkgrey;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Blogg</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "welcome" %>
+
+  </head>
+  <body>
+  <% if current_user %> 
+  <div align="center", id = "linkTo2">
+    <%= current_user.email %>
+    ||
+    <%= link_to "Log out", logout_path, method: "delete" %>
+  </div>
+<% else %> 
+ 
+ 
+  <div align="center", , id = "linkTo2">
+    <%= link_to "Login", 'login' %></a>
+  ||
+  <%= link_to "Signup", 'signup' %></a>
+  </div>
+<% end %>
+
+    <%= yield %>
+
+  </body>
+</html>

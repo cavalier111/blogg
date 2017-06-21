@@ -1,0 +1,16 @@
+
+/**$('.upvote_article').bind('ajax:success', function(){
+   $(this).parent().parent().find('.vote_count').html('<%= escape_javascript @article.get_upvotes.size.to_s %>');
+   $(this).closest('.upvote_article').hide();
+   $(this).closest('.votes').html('<div id = "linkTo"> <%= link_to @article.get_upvotes.size, like_article_path(@article), remote: true, method: :get, class: "upvote_article"%> <img src="/assets/upArrow.png"></div>');
+
+});
+*/
+$('.vpos').on('ajax:success', function() {
+ $('.vcount-<%= @article.id %>').html('<%=escape_javascript @article.get_upvotes.size.to_s %>');
+ 
+});
+
+$('.vpos').on('ajax:success', function() {
+	 $('.ncount-<%= @article.id %>').html('<%=escape_javascript @article.get_downvotes.size.to_s %>');
+});

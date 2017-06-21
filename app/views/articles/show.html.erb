@@ -1,0 +1,64 @@
+<div class = "welcome">
+	<p>
+		<strong>Title:</strong>
+		<%= @article.title %>
+	</p>
+
+	<p>
+		<strong>Text:</strong>
+		<%= @article.text %>
+	</p>
+
+	<p>
+		<strong>Image:</strong>
+		<%= image_tag @article.image_url.to_s if @article.image_url.present? %>
+	</p>
+
+	<h2>Comments</h2>
+	<%= render @article.comments %>
+
+	<h2>Add a comment:</h2>
+	<%= render 'comments/form' %>
+	
+	<div id = "linkTo2">
+		<%= link_to 'Edit', edit_article_path(@article) %> |
+		<%= link_to 'Back', articles_path %>
+	</div>
+
+
+	<table>
+		<tr>
+
+		<td>
+			<aside class="vote-count bind-<%= @article.id %>">
+				<div id = "linkTo"><%= link_to like_article_path(@article) ,remote: true,  class: 'vpos', method: :put do %>
+					<img src="/assets/upArrow.png">
+					<% end %>
+				</div>
+		</td>
+
+		<td>
+			<div id = "linkTo"><%= link_to dislike_article_path(@article), remote: true, class: 'npos', method: :put do %>
+				<img src="/assets/downArrow.png">
+				<% end %>
+			</div>
+		</td>
+	</aside>
+
+	<td>
+		<span class="vcount-<%= @article.id %>">
+			<%= @article.get_upvotes.size %>
+		</span>
+	</td>
+
+	<td>
+		<span class="ncount-<%= @article.id %>">
+			<%= @article.get_downvotes.size %>
+		</span>
+	</td>
+</tr>
+
+
+</table>
+
+</div>

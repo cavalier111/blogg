@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<%= stylesheet_link_tag "articles.css" %>
+<div class = "welcome">
+  <html>
+
+  <form method = get, action="/welcome/index">
+    <input type="image" src="/assets/home-icon.png"  />
+  </form>
+
+
+  <h1>Listing Articles</h1>
+  <div id = "linkTo2">
+    <%= link_to 'New article', new_article_path %>
+  </div>
+  <head>
+
+  </head>
+  <body>
+   <table style="width:80%", border="0">  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th> Show Article </th>
+    <th> Edit Article </th>
+    <th> Destroy Article </th>
+    <th> Image</th>
+    <th> Upvotes </th>
+    <th> Downvotes </th>
+  </tr>
+
+  <% @articles.each do |article| %>
+
+  <tr style="color:white;">
+    <td><%= article.title %></td>
+    <td><%= article.text %></td>
+
+    <td><div id = "linkTo"><%= link_to 'Show', article_path(article) %></div></td>
+
+    <td><div id = "linkTo"><%= link_to 'Edit', edit_article_path(article) %></div></td>
+    <td><div id = "linkTo"><%= link_to 'Destroy', article_path(article), method: :delete, data: {confirm: 'Are you sure?'} %></div></td>
+
+    <td>  
+      <% if (article.image_url.present?) then%>
+        <strong>Image:</strong>
+        <%= image_tag article.image_url.to_s %>
+      <%else%> 
+        No Image
+      <% end %>
+    </td>
+    <td>
+      <%= article.get_upvotes.size %>
+    </td>
+    <td>
+      <%= article.get_downvotes.size %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+</body>
+</html>
+</div>
