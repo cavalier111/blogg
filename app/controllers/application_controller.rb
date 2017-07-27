@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
- 	 helper_method :current_user,:current_user_id
+ 	 helper_method :current_user
 
 	before_action :require_user, :only => :current_user
 def current_user 
@@ -15,4 +15,7 @@ end
 def require_user 
   redirect_to '/login' unless current_user 
 end
+
+
+
 end

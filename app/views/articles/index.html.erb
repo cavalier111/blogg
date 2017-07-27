@@ -39,9 +39,10 @@
     <td><div id = "linkTo"><%= link_to 'Destroy', article_path(article), method: :delete, data: {confirm: 'Are you sure?'} %></div></td>
 
     <td>  
+
       <% if (article.image_url.present?) then%>
-        <strong>Image:</strong>
-        <%= image_tag article.image_url.to_s %>
+        <strong>Image:</strong>      
+        <%= image_tag article.image_url.to_s, :size => "65x45" %>
       <%else%> 
         No Image
       <% end %>

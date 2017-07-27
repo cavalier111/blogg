@@ -1,7 +1,5 @@
 class User < ApplicationRecord
   has_many :articles
-  #has_many :comments, through: :articles
-  has_many :comments, as: :commentable
   acts_as_voter
   validates :first_name,  presence: true, length: { maximum: 50 }
   validates :last_name,  presence: true, length: { maximum: 50 }
