@@ -1,11 +1,12 @@
 class ArticlesController < ApplicationController
-	before_action :require_permission, :only => :destroy
+	before_action :require_permission, :only => [:destroy, :edit]
 	def index
    	@articles = Article.all
   	end
 
   def edit
   	@article = Article.find(params[:id])
+
 	end
 
 	def show
