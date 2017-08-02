@@ -23,11 +23,13 @@
 	</div>
 	
 	
-
+	<% if session[:user_id] %>
 	<div align = "center", , id = "linkTo2">
 		<font color = "grey">
+
 			<%= link_to 'My Blog', controller: 'articles' %>
 		</font>
 	</div>
+	<% end %>
 </div>
 </body>
